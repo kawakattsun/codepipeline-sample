@@ -20,6 +20,7 @@ phases:
       - docker push ${REPOSITORY_URI}/${REPOSITORY_NAME}:${IMAGE_TAG}
       - echo Writing image definitions file...
       - printf '{"ImageURI":"%s"}' ${REPOSITORY_URI}/${REPOSITORY_NAME}:${IMAGE_TAG} > imageDetail.json
+      - envsubst < taskdef.json > taskdef.json
 
 artifacts:
   files:
